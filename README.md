@@ -21,6 +21,9 @@ The project uses Amazon Lighsail to deploy flask based web application into AWS.
 3. Configurations
 
 - From inside the terminal provided after creating instance, run below:
+ - `sudo apt-get install aptitude`
+ - `sudo aptitude update`
+ - `sudo aptitude safe-upgrade`
  - `sudo apt_get update` to update package source list
  - `sudo apt_get upgrade` to actually update installed software
  - `sudo apt_get install finger` install new package finger to display readable format info about users
@@ -44,10 +47,11 @@ The project uses Amazon Lighsail to deploy flask based web application into AWS.
  - `sudo ufw default allow outgoing` to allow any request server tries to send outside
  - `sudo ufw allow ssh` to allow ssh
  - `sudo ufw allow 2200/tcp` ssh on port 2200
+ - `sudo ufw deny 22`
  - `sudo ufw allow www` for http
  - `sudo ufw allow ntp` for ntp
  - `sudo ufw enable` enable firewall
- - `sudo nano /etc/ssh/sshd_config` to open editor and change port number from 22 to 2200
+ - `sudo nano /etc/ssh/sshd_config` to open editor and change port number from 22 to 2200, set PermitRootLogin to no
  - `sudo service ssh force-reload` to restart
 
 - Now the provided instance terminal will not be available as it is using ssh port 22 by default, so access the server locally by downloading the SSH key pairs provided inside AWS account and run `ssh -i LightsailDefaultPrivateKey-eu-central-1.pem ubuntu@18.196.23.162 -p 2200`:
